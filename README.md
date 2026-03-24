@@ -14,18 +14,33 @@
       url: "https://example.com",
     },
     menus: [
-      { label: "下载", url: "https://example.com/download" },
-      { label: "联系我们", url: "https://example.com/contact" },
-    ],
-    logo: "https://example.com/logo.svg",
-    dropdownMenus: [
       {
-        label: "产品",
-        description: "查看所有产品",
-        url: "https://example.com/products",
+        label: "下载",
+        url: "https://infinilabs.cn/download",
+      },
+      {
+        label: "联系我们",
+        url: "https://infinilabs.cn/company/contact",
       },
     ],
-    closable: true,
+    logo: "https://infinilabs.cn/img/header/logo.svg",
+    dropdownMenus: [
+      {
+        label: "INFINI Labs 官网",
+        description: "公司介绍、新闻动态、展会活动等信息",
+        url: "https://infinilabs.cn/",
+      },
+      {
+        label: "Easysearch 官网",
+        description: "企业级的分布式搜索型数据库",
+        url: "https://easysearch.cn",
+      },
+      {
+        label: "Coco AI 官网",
+        description: "为现代团队打造的统一搜索与 AI 智能助手",
+        url: "https://coco.rs",
+      },
+    ],
   });
 </script>
 ```
