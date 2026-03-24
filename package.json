@@ -1,0 +1,34 @@
+{
+  "name": "notice-widget",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "dist/notice-widget.umd.cjs",
+  "module": "dist/notice-widget.js",
+  "types": "dist/notice-widget.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/notice-widget.js",
+      "require": "./dist/notice-widget.umd.cjs",
+      "types": "./dist/notice-widget.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build"
+  },
+  "devDependencies": {
+    "sass": "^1.98.0",
+    "typescript": "~5.9.3",
+    "vite": "^8.0.1"
+  },
+  "dependencies": {
+    "es-toolkit": "^1.45.1",
+    "lucide": "^1.0.1",
+    "motion": "^12.38.0",
+    "uhtml": "^5.0.9"
+  }
+}
