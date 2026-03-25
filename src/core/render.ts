@@ -8,10 +8,7 @@ import { renderTitle } from "../components/title";
 import { renderButton } from "../components/button";
 import { renderMenus } from "../components/menus";
 import { renderLogo } from "../components/logo";
-import {
-  renderDropdownIcon,
-  renderDropdownMenus,
-} from "../components/dropdown";
+import { DropdownIcon, renderDropdownMenus } from "../components/dropdown";
 import { renderCloseIcon } from "../components/close-icon";
 
 export interface Options {
@@ -75,11 +72,12 @@ export function renderNotice(options?: Options) {
 
           <div class="nw-actions">
             ${renderMenus(options)} ${renderLogo(options)}
-            ${renderDropdownIcon(options)}
+            ${html`<${DropdownIcon} ...${options} />`}
+            ${renderCloseIcon(options)}
           </div>
         </div>
 
-        ${renderCloseIcon(options)} ${renderDropdownMenus(options)}
+        ${renderDropdownMenus(options)}
       </div>
     `;
 

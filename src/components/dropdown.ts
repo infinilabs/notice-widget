@@ -1,49 +1,50 @@
-import { html } from "uhtml";
+import { effect, html, signal } from "uhtml";
 import { createElement, Menu, ArrowUpRight } from "lucide";
 import { animate } from "motion";
-import { isEmpty } from "es-toolkit/compat";
 
 import { getShadowRoot } from "../core/mount";
 import { toStyle } from "../core/utils";
 import type { Options } from "../core/render";
+import { renderMenus } from "./menus";
 
-const toggleDropdown = (() => {
-  let isOpen = false;
+export function DropdownIcon(options?: Options) {
+  const open = signal(false);
 
-  return () => {
-    isOpen = !isOpen;
+  const { dropdownIcon, dropdownMenus } = options ?? {};
+
+  if (!dropdownMenus || dropdownMenus.length === 0) return null;
+
+  effect(() => {
+    const isOpen = open.value;
 
     const shadow = getShadowRoot();
+    const element = shadow.querySelector(".nw-dropdown-menus");
 
-    const menuElement = shadow.querySelector<HTMLElement>(".nw-dropdown-menus");
-
-    if (!menuElement) return;
+    if (!element) return;
 
     if (isOpen) {
-      animate(menuElement, {
+      animate(element, {
         height: "auto",
         opacity: 1,
         paddingBlock: 24,
         borderTopWidth: 1,
       });
     } else {
-      animate(menuElement, {
+      animate(element, {
         height: 0,
         opacity: 0,
         paddingBlock: 0,
         borderTopWidth: 0,
       });
     }
+  });
+
+  const handleClick = () => {
+    open.value = !open.value;
   };
-})();
-
-export function renderDropdownIcon(options?: Options) {
-  const { dropdownIcon, dropdownMenus } = options ?? {};
-
-  if (isEmpty(dropdownMenus)) return null;
 
   return html`
-    <div class="nw-dropdown-icon" onClick=${toggleDropdown}>
+    <div class="nw-dropdown-icon" onClick=${handleClick}>
       ${createElement(Menu, {
         style: toStyle(dropdownIcon),
       })}
@@ -54,11 +55,12 @@ export function renderDropdownIcon(options?: Options) {
 export function renderDropdownMenus(options?: Options) {
   const { dropdownMenus } = options ?? {};
 
-  if (isEmpty(dropdownMenus)) return null;
+  if (!dropdownMenus || dropdownMenus.length === 0) return null;
 
   return html`
     <div class="nw-dropdown-menus">
-      ${dropdownMenus?.map((item) => {
+      ${renderMenus(options, false)}
+      ${dropdownMenus.map((item) => {
         const { label, description, url } = item;
 
         return html`

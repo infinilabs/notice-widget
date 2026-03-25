@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      es-toolkit:
-        specifier: ^1.45.1
-        version: 1.45.1
       lucide:
         specifier: ^1.0.1
         version: 1.0.1
@@ -21,6 +18,9 @@ importers:
         specifier: ^5.0.9
         version: 5.0.9
     devDependencies:
+      '@types/node':
+        specifier: ^25.5.0
+        version: 25.5.0
       sass:
         specifier: ^1.98.0
         version: 1.98.0
@@ -29,7 +29,7 @@ importers:
         version: 5.9.3
       vite:
         specifier: ^8.0.1
-        version: 8.0.1(sass@1.98.0)
+        version: 8.0.1(@types/node@25.5.0)(sass@1.98.0)
 
 packages:
 
@@ -225,6 +225,9 @@ packages:
   '@tybys/wasm-util@0.10.1':
     resolution: {integrity: sha512-9tTaPJLSiejZKx+Bmog4uSubteqTvFrVrURwkmHixBo0G4seD0zUxp98E1DzUBJxLQ3NPwXrGKDiVjwx/DpPsg==}
 
+  '@types/node@25.5.0':
+    resolution: {integrity: sha512-jp2P3tQMSxWugkCUKLRPVUpGaL5MVFwF8RDuSRztfwgN1wmqJeMSbKlnEtQqU8UrhTmzEmZdu2I6v2dpp7XIxw==}
+
   '@webreflection/alien-signals@0.3.2':
     resolution: {integrity: sha512-DmNjD8Kq5iM+Toirp3llS/izAiI3Dwav5nHRvKdR/YJBTgun3y4xK76rs9CFYD2bZwZJN/rP+HjEqKTteGK+Yw==}
 
@@ -238,9 +241,6 @@ packages:
   detect-libc@2.1.2:
     resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==}
     engines: {node: '>=8'}
-
-  es-toolkit@1.45.1:
-    resolution: {integrity: sha512-/jhoOj/Fx+A+IIyDNOvO3TItGmlMKhtX8ISAHKE90c4b/k1tqaqEZ+uUqfpU8DMnW5cgNJv606zS55jGvza0Xw==}
 
   fdir@6.5.0:
     resolution: {integrity: sha512-tIbYtZbucOs0BRGqPJkshJUYdL+SDH7dVM8gjy+ERp3WAUjLEFJE+02kanyHtwjWOnwrKYBiwAmM0p4kLJAnXg==}
@@ -425,6 +425,9 @@ packages:
 
   uhtml@5.0.9:
     resolution: {integrity: sha512-qPyu3vGilaLe6zrjOCD/xezWEHLwdevxmbY3hzyhT25KBDF4F7YYW3YZcL3kylD/6dMoVISHjn8ggV3+9FY+5g==}
+
+  undici-types@7.18.2:
+    resolution: {integrity: sha512-AsuCzffGHJybSaRrmr5eHr81mwJU3kjw6M+uprWvCXiNeN9SOGwQ3Jn8jb8m3Z6izVgknn1R0FTCEAP2QrLY/w==}
 
   vite@8.0.1:
     resolution: {integrity: sha512-wt+Z2qIhfFt85uiyRt5LPU4oVEJBXj8hZNWKeqFG4gRG/0RaRGJ7njQCwzFVjO+v4+Ipmf5CY7VdmZRAYYBPHw==}
@@ -611,6 +614,10 @@ snapshots:
       tslib: 2.8.1
     optional: true
 
+  '@types/node@25.5.0':
+    dependencies:
+      undici-types: 7.18.2
+
   '@webreflection/alien-signals@0.3.2':
     dependencies:
       alien-signals: 2.0.8
@@ -622,8 +629,6 @@ snapshots:
       readdirp: 4.1.2
 
   detect-libc@2.1.2: {}
-
-  es-toolkit@1.45.1: {}
 
   fdir@6.5.0(picomatch@4.0.3):
     optionalDependencies:
@@ -771,7 +776,9 @@ snapshots:
     dependencies:
       '@webreflection/alien-signals': 0.3.2
 
-  vite@8.0.1(sass@1.98.0):
+  undici-types@7.18.2: {}
+
+  vite@8.0.1(@types/node@25.5.0)(sass@1.98.0):
     dependencies:
       lightningcss: 1.32.0
       picomatch: 4.0.3
@@ -779,5 +786,6 @@ snapshots:
       rolldown: 1.0.0-rc.10
       tinyglobby: 0.2.15
     optionalDependencies:
+      '@types/node': 25.5.0
       fsevents: 2.3.3
       sass: 1.98.0

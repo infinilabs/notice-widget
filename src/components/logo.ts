@@ -1,5 +1,4 @@
 import { html } from "uhtml";
-import { isEmpty } from "es-toolkit/compat";
 
 import { cond } from "../core/utils";
 import type { Options } from "../core/render";
@@ -11,8 +10,10 @@ export function renderLogo(options?: Options) {
   if (!logo) return null;
 
   return html`
-    ${cond(!isEmpty(menus), renderDivider(options))}
+    <div class="nw-logo">
+      ${cond(menus?.length !== 0, renderDivider(options))}
 
-    <img src="${logo}" alt="logo" class="nw-logo" />
+      <img src="${logo}" alt="logo" />
+    </div>
   `;
 }
