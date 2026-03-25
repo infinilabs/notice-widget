@@ -1,0 +1,66 @@
+{
+  "title": "🎉 Easysearch 2.0.2 Released — ShangMi Crypto Now Available!",
+  "tag": {
+    "label": "New"
+  },
+  "button": {
+    "label": "Try Now",
+    "url": "https://easysearch.cn"
+  },
+  "menus": [
+    {
+      "label": "Download",
+      "url": "https://easysearch.cn"
+    },
+    {
+      "label": "Contact Us",
+      "url": "https://easysearch.cn"
+    },
+    {
+      "label": "Support",
+      "url": "https://easysearch.cn"
+    },
+    {
+      "label": "Login",
+      "url": "https://easysearch.cn"
+    }
+  ],
+  "logo": "https://infinilabs.cn/img/header/logo.svg",
+  "dropdownMenus": [
+    {
+      "label": "INFINI Labs",
+      "description": "Company info, news, events and more",
+      "url": "https://infinilabs.cn/"
+    },
+    {
+      "label": "Easysearch",
+      "description": "Enterprise-grade distributed search database",
+      "url": "https://easysearch.cn"
+    },
+    {
+      "label": "Coco AI",
+      "description": "Unified search & AI assistant for modern teams",
+      "url": "https://coco.rs"
+    },
+    {
+      "label": "INFINI Cloud",
+      "description": "One-stop enterprise search management & innovation platform",
+      "url": "https://easysearch.cn"
+    },
+    {
+      "label": "Easysearch Knowledge Base",
+      "description": "Docs, guides & FAQs for Easysearch",
+      "url": "https://easysearch.cn/knowledge-base"
+    },
+    {
+      "label": "Free License Program",
+      "description": "Free licenses for open source & education",
+      "url": "https://easysearch.cn"
+    },
+    {
+      "label": "INFINI Pizza",
+      "description": "Next-gen real-time search & AI-native enterprise engine",
+      "url": "https://pizza.rs"
+    }
+  ]
+}

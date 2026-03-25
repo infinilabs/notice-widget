@@ -11,7 +11,7 @@ import { renderLogo } from "../components/logo";
 import { DropdownIcon, renderDropdownMenus } from "../components/dropdown";
 import { renderCloseIcon } from "../components/close-icon";
 
-export interface Options {
+export interface NoticeData {
   color?: string;
   background?: string;
   title?: string;
@@ -48,39 +48,96 @@ export interface Options {
   };
 }
 
-export function renderNotice(options?: Options) {
-  if (options) {
-    const shadow = getShadowRoot();
+export type Lang = "zh-CN" | "en-US";
 
-    if (!shadow.querySelector("style")) {
-      const style = document.createElement("style");
+export type LocaleFiles = Record<Lang, string>;
 
-      style.textContent = styles;
+let localeFiles: LocaleFiles | null = null;
+let localeCache: Partial<Record<Lang, NoticeData>> = {};
+let currentLang: Lang = "zh-CN";
 
-      shadow.appendChild(style);
-    }
+async function fetchLocale(url: string): Promise<NoticeData> {
+  try {
+    const response = await fetch(url);
 
-    const { color, background } = options;
+    return response.json() as Promise<NoticeData>;
+  } catch {
+    throw new Error(`Failed to fetch locale data from: ${url}`);
+  }
+}
 
-    const el = html`
-      <div class="nw-banner" style=${toStyle({ color, background })}>
-        <div class="nw-body">
-          <div class="nw-content">
-            ${renderTag(options)} ${renderTitle(options)}
-            ${renderButton(options)}
-          </div>
+async function getLocaleData(lang: Lang): Promise<NoticeData> {
+  if (localeCache[lang]) {
+    return localeCache[lang];
+  }
 
-          <div class="nw-actions">
-            ${renderMenus(options)} ${renderLogo(options)}
-            ${html`<${DropdownIcon} ...${options} />`}
-            ${renderCloseIcon(options)}
-          </div>
+  const url = localeFiles?.[lang];
+
+  if (!url) {
+    throw new Error(`No locale file for: ${lang}`);
+  }
+
+  const data = await fetchLocale(url);
+
+  localeCache[lang] = data;
+
+  return data;
+}
+
+export async function initNotice(files: LocaleFiles, lang: Lang = "zh-CN") {
+  localeFiles = files;
+  currentLang = lang;
+
+  const data = await getLocaleData(currentLang);
+
+  render(data);
+}
+
+export async function setLang(lang: Lang) {
+  if (!localeFiles || currentLang === lang) return;
+
+  currentLang = lang;
+
+  const data = await getLocaleData(currentLang);
+
+  render(data);
+}
+
+function render(data: NoticeData) {
+  const shadow = getShadowRoot();
+
+  if (!shadow.querySelector("style")) {
+    const style = document.createElement("style");
+
+    style.textContent = styles;
+
+    shadow.append(style);
+  }
+
+  const prevBanner = shadow.querySelector(".nw-banner");
+
+  if (prevBanner) {
+    prevBanner.remove();
+  }
+
+  const { color, background } = data;
+
+  const el = html`
+    <div class="nw-banner" style=${toStyle({ color, background })}>
+      <div class="nw-body">
+        <div class="nw-content">
+          ${renderTag(data)} ${renderTitle(data)} ${renderButton(data)}
         </div>
 
-        ${renderDropdownMenus(options)}
+        <div class="nw-actions">
+          ${renderMenus(data)} ${renderLogo(data)}
+          ${html`<${DropdownIcon} ...${data} />`} ${renderCloseIcon(data)}
+        </div>
       </div>
-    `;
 
-    shadow.prepend(el as Node);
-  }
+      ${renderDropdownMenus(data)}
+    </div>
+  `;
+
+  shadow.append(el as Node);
 }

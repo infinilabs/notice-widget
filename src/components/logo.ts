@@ -1,17 +1,17 @@
 import { html } from "uhtml";
 
 import { cond } from "../core/utils";
-import type { Options } from "../core/render";
+import type { NoticeData } from "../core/render";
 import { renderDivider } from "./divider";
 
-export function renderLogo(options?: Options) {
-  const { logo, menus } = options ?? {};
+export function renderLogo(data?: NoticeData) {
+  const { logo, menus } = data ?? {};
 
   if (!logo) return null;
 
   return html`
     <div class="nw-logo">
-      ${cond(menus?.length !== 0, renderDivider(options))}
+      ${cond(menus?.length !== 0, renderDivider(data))}
 
       <img src="${logo}" alt="logo" />
     </div>

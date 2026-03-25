@@ -1,10 +1,10 @@
 import { html } from "uhtml";
 
 import { toStyle } from "../core/utils";
-import type { Options } from "../core/render";
+import type { NoticeData } from "../core/render";
 
-export function renderDivider(options?: Options) {
-  const { divider } = options ?? {};
+export function renderDivider(data?: NoticeData) {
+  const { divider } = data ?? {};
 
   return html`<div class="nw-divider" style=${toStyle(divider)} />`;
 }

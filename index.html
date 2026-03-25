@@ -9,72 +9,13 @@
   <body style="margin: 0">
     <div>我是正文内容</div>
 
+    <button onclick="NoticeWidget.setLang('en-US')">English</button>
+    <button onclick="NoticeWidget.setLang('zh-CN')">中文</button>
+
     <script>
-      NoticeWidget.show({
-        title: "🎉 Easysearch 2.0.2 发布，国密功能正式上线！",
-        tag: {
-          label: "New",
-        },
-        button: {
-          label: "立即试用",
-          url: "https://easysearch.cn",
-        },
-        menus: [
-          {
-            label: "下载",
-            url: "https://easysearch.cn",
-          },
-          {
-            label: "联系我们",
-            url: "https://easysearch.cn",
-          },
-          {
-            label: "支持",
-            url: "https://easysearch.cn",
-          },
-          {
-            label: "登录",
-            url: "https://easysearch.cn",
-          },
-        ],
-        logo: "https://infinilabs.cn/img/header/logo.svg",
-        dropdownMenus: [
-          {
-            label: "INFINI Labs 官网",
-            description: "公司介绍、新闻动态、展会活动等信息",
-            url: "https://infinilabs.cn/",
-          },
-          {
-            label: "Easysearch 官网",
-            description: "企业级的分布式搜索型数据库",
-            url: "https://easysearch.cn",
-          },
-          {
-            label: "Coco AI 官网",
-            description: "为现代团队打造的统一搜索与 AI 智能助手",
-            url: "https://coco.rs",
-          },
-          {
-            label: "INFINI Could 官网",
-            description: "一站式企业搜索管理与创新平台",
-            url: "https://easysearch.cn",
-          },
-          {
-            label: "Easysearch 知识库",
-            description: "汇集 Easysearch 文档、指南与常见问题",
-            url: "https://easysearch.cn/knowledge-base",
-          },
-          {
-            label: "免费许可证计划",
-            description: "开源项目与教育机构免费许可证计划",
-            url: "https://easysearch.cn",
-          },
-          {
-            label: "INFINI Pizza 官网",
-            description: "下一代纯实时搜索与 AI 原生企业创新引擎",
-            url: "https://pizza.rs",
-          },
-        ],
+      NoticeWidget.init({
+        "zh-CN": "./locales/zh-CN.json",
+        "en-US": "./locales/en-US.json",
       });
     </script>
   </body>

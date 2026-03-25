@@ -1,9 +1,9 @@
 import { html } from "uhtml";
 
-import type { Options } from "../core/render";
+import type { NoticeData } from "../core/render";
 
-export function renderTitle(options?: Options) {
-  const { title } = options ?? {};
+export function renderTitle(data?: NoticeData) {
+  const { title } = data ?? {};
 
   if (!title) return null;
 

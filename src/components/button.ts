@@ -1,10 +1,10 @@
 import { html } from "uhtml";
 
 import { toStyle } from "../core/utils";
-import type { Options } from "../core/render";
+import type { NoticeData } from "../core/render";
 
-export function renderButton(options?: Options) {
-  const { label, url, ...rest } = options?.button ?? {};
+export function renderButton(data?: NoticeData) {
+  const { label, url, ...rest } = data?.button ?? {};
 
   if (!label) return null;
 

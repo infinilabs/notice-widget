@@ -1,21 +1,39 @@
+$primary-color: #1784fc;
+$danger-color: #ff4d4f;
+$warning-color: #ff9900;
+$text-color-1: #333;
+$text-color-2: #666;
+$text-color-3: #999;
+$bg-color: #f5f5f5;
+$color-white: #fff;
+$divider-color: #bbb;
+$border-color: #e4e4e4;
+$size-xs: 4px;
+$size-sm: 8px;
+$size-md: 12px;
+$size-lg: 16px;
+$size-xl: 24px;
+$size-2xl: 32px;
+$size-3xl: 48px;
+$size-4xl: 64px;
+
 .nw-banner {
   position: relative;
 
-  padding: 0 64px;
+  padding: 0 $size-4xl;
 
-  color: #333;
-  background: #f5f5f5;
+  color: $text-color-1;
+  background: $bg-color;
 
   font-size: 14px;
-  line-height: 20px;
 
   .nw-body {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    height: 48px;
-    gap: 16px;
+    height: $size-3xl;
+    gap: $size-xl;
 
     .nw-content {
       flex: 1;
@@ -24,18 +42,18 @@
       display: flex;
       align-items: center;
 
-      gap: 12px;
+      gap: $size-md;
 
       .nw-tag {
         display: flex;
         align-items: center;
 
-        height: 24px;
-        padding: 0 12px;
+        height: $size-xl;
+        padding: 0 $size-md;
 
-        color: #fff;
-        border-radius: 8px;
-        background-color: #ff9900;
+        color: $color-white;
+        border-radius: $size-sm;
+        background-color: $warning-color;
       }
 
       .nw-title {
@@ -49,16 +67,16 @@
         align-items: center;
         white-space: nowrap;
 
-        height: 32px;
-        padding: 0 16px;
+        height: $size-2xl;
+        padding: 0 $size-lg;
 
         cursor: pointer;
         transition: opacity 0.2s;
         text-decoration: none;
 
-        color: #fff;
-        border-radius: 24px;
-        background: #1784fc;
+        color: $color-white;
+        border-radius: $size-xl;
+        background: $primary-color;
 
         &:hover {
           opacity: 0.8;
@@ -74,13 +92,13 @@
       display: flex;
       align-items: center;
 
-      gap: 16px;
+      gap: $size-lg;
 
       .nw-menus {
         display: flex;
         align-items: center;
 
-        gap: 16px;
+        gap: $size-lg;
 
         .nw-menu {
           cursor: pointer;
@@ -90,7 +108,7 @@
           color: inherit;
 
           &:hover {
-            color: #1784fc;
+            color: $primary-color;
           }
         }
       }
@@ -98,24 +116,24 @@
       .nw-logo {
         display: flex;
         align-items: center;
-        gap: 16px;
+        gap: $size-lg;
 
         img {
-          height: 16px;
+          height: $size-lg;
         }
       }
 
       .nw-dropdown-icon {
-        width: 16px;
-        height: 16px;
+        width: $size-lg;
+        height: $size-lg;
 
         cursor: pointer;
         transition: color 0.2s;
 
-        color: #999;
+        color: $text-color-3;
 
         &:hover {
-          color: #1784fc;
+          color: $primary-color;
         }
 
         svg {
@@ -128,9 +146,9 @@
 
   .nw-divider {
     width: 1px;
-    height: 12px;
+    height: $size-md;
 
-    background: #bbb;
+    background: $divider-color;
   }
 
   .nw-close-icon {
@@ -142,21 +160,21 @@
     align-items: center;
     justify-content: center;
 
-    width: 48px;
-    height: 48px;
+    width: $size-3xl;
+    height: $size-3xl;
 
     cursor: pointer;
     transition: color 0.2s;
 
-    color: #666;
+    color: $text-color-2;
 
     &:hover {
-      color: #ff4d4f;
+      color: $danger-color;
     }
 
     svg {
-      width: 16px;
-      height: 16px;
+      width: $size-lg;
+      height: $size-lg;
     }
   }
 
@@ -167,16 +185,16 @@
 
     height: 0;
 
-    border-top: 0 solid #e4e4e4;
+    border-top: 0 solid $border-color;
 
-    gap: 16px;
+    gap: $size-lg;
 
     .nw-menus {
       width: 100%;
-      padding: 0 16px 8px;
+      padding: 0 $size-lg $size-sm;
       display: none;
       flex-direction: column;
-      gap: 24px;
+      gap: $size-xl;
 
       .nw-menu {
         cursor: pointer;
@@ -186,7 +204,7 @@
         color: inherit;
 
         &:hover {
-          color: #1784fc;
+          color: $primary-color;
         }
       }
     }
@@ -195,44 +213,44 @@
       position: relative;
 
       box-sizing: border-box;
-      width: calc(25% - 12px);
-      padding: 24px;
+      width: calc(25% - $size-md);
+      padding: $size-xl;
 
       transition: color 0.2s;
       text-decoration: none;
 
       color: inherit;
-      border-radius: 8px;
-      background: #fff;
+      border-radius: $size-sm;
+      background: $color-white;
 
       &-label {
         font-weight: 500;
       }
 
       &-description {
-        margin-top: 8px;
+        margin-top: $size-sm;
 
-        color: #999;
+        color: $text-color-3;
       }
 
       &-arrow-icon {
         position: absolute;
-        top: 24px;
-        right: 24px;
+        top: $size-xl;
+        right: $size-xl;
 
-        width: 16px;
-        height: 16px;
+        width: $size-lg;
+        height: $size-lg;
 
         transition: transform 0.2s;
 
-        color: #1784fc;
+        color: $primary-color;
       }
 
       &:hover {
-        color: #1784fc;
+        color: $primary-color;
 
         .nw-dropdown-menu-arrow-icon {
-          transform: translateX(4px);
+          transform: translateX($size-xs);
         }
       }
     }
@@ -241,10 +259,12 @@
 
 @media (max-width: 960px) {
   .nw-banner {
-    padding: 0 16px;
+    padding: 0 $size-lg;
 
     .nw-body {
       .nw-actions {
+        gap: $size-md;
+
         .nw-menus {
           display: none;
         }
@@ -254,8 +274,8 @@
         }
 
         .nw-close-icon {
-          width: 16px;
-          height: 16px;
+          width: $size-lg;
+          height: $size-lg;
           position: static;
         }
       }
@@ -268,7 +288,7 @@
 
       .nw-dropdown-menu {
         width: 100%;
-        padding: 16px;
+        padding: $size-lg;
       }
     }
   }

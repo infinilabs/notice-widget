@@ -4,7 +4,7 @@ import { animate } from "motion";
 
 import { getShadowRoot } from "../core/mount";
 import { toStyle } from "../core/utils";
-import type { Options } from "../core/render";
+import type { NoticeData } from "../core/render";
 
 const handleClose = async () => {
   const shadow = getShadowRoot();
@@ -17,8 +17,8 @@ const handleClose = async () => {
   shadow.host.remove();
 };
 
-export function renderCloseIcon(options?: Options) {
-  const { closable = true, closeIcon } = options ?? {};
+export function renderCloseIcon(data?: NoticeData) {
+  const { closable = true, closeIcon } = data ?? {};
 
   if (!closable) return null;
 

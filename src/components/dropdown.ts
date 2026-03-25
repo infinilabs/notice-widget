@@ -4,13 +4,13 @@ import { animate } from "motion";
 
 import { getShadowRoot } from "../core/mount";
 import { toStyle } from "../core/utils";
-import type { Options } from "../core/render";
+import type { NoticeData } from "../core/render";
 import { renderMenus } from "./menus";
 
-export function DropdownIcon(options?: Options) {
+export function DropdownIcon(data?: NoticeData) {
   const open = signal(false);
 
-  const { dropdownIcon, dropdownMenus } = options ?? {};
+  const { dropdownIcon, dropdownMenus } = data ?? {};
 
   if (!dropdownMenus || dropdownMenus.length === 0) return null;
 
@@ -52,14 +52,14 @@ export function DropdownIcon(options?: Options) {
   `;
 }
 
-export function renderDropdownMenus(options?: Options) {
-  const { dropdownMenus } = options ?? {};
+export function renderDropdownMenus(data?: NoticeData) {
+  const { dropdownMenus } = data ?? {};
 
   if (!dropdownMenus || dropdownMenus.length === 0) return null;
 
   return html`
     <div class="nw-dropdown-menus">
-      ${renderMenus(options, false)}
+      ${renderMenus(data, false)}
       ${dropdownMenus.map((item) => {
         const { label, description, url } = item;
 

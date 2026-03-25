@@ -1,51 +1,36 @@
 ## 如何使用
 
+准备好 `zh-CN.json` 和 `en-US.json` 两个 JSON 文件，数据结构见下方 [NoticeData 字段](#noticedata-字段)。
+
 ```html
 <script src="./dist/notice-widget.umd.cjs"></script>
 
 <script>
-  NoticeWidget.show({
-    title: "🎉 Easysearch 2.0.2 发布，国密功能正式上线！",
-    tag: {
-      label: "New",
-    },
-    button: {
-      label: "立即试用",
-      url: "https://example.com",
-    },
-    menus: [
-      {
-        label: "下载",
-        url: "https://infinilabs.cn/download",
-      },
-      {
-        label: "联系我们",
-        url: "https://infinilabs.cn/company/contact",
-      },
-    ],
-    logo: "https://infinilabs.cn/img/header/logo.svg",
-    dropdownMenus: [
-      {
-        label: "INFINI Labs 官网",
-        description: "公司介绍、新闻动态、展会活动等信息",
-        url: "https://infinilabs.cn/",
-      },
-      {
-        label: "Easysearch 官网",
-        description: "企业级的分布式搜索型数据库",
-        url: "https://easysearch.cn",
-      },
-      {
-        label: "Coco AI 官网",
-        description: "为现代团队打造的统一搜索与 AI 智能助手",
-        url: "https://coco.rs",
-      },
-    ],
+  NoticeWidget.init({
+    "zh-CN": "./locales/zh-CN.json",
+    "en-US": "./locales/en-US.json",
   });
+
+  NoticeWidget.setLang("en-US");
 </script>
 ```
 
-## 配置项
+## 方法
+
+| 方法      | 参数                                  | 说明                                                       |
+| --------- | ------------------------------------- | ---------------------------------------------------------- |
+| `init`    | `(locales: LocaleFiles, lang?: Lang)` | 传入各语言 JSON 文件 URL，初始化并渲染（默认语言 `zh-CN`） |
+| `setLang` | `(lang: Lang)`                        | 切换语言，加载对应 JSON 文件并重新渲染                     |
+
+### Lang
+
+`"zh-CN" | "en-US"`
+
+### LocaleFiles
+
+`Record<Lang, string>` — 键为语言标识，值为对应语言 JSON 文件的 URL。
+
+## NoticeData 字段
 
 | 参数            | 类型      | 必填 | 默认值    | 说明             |
 | --------------- | --------- | ---- | --------- | ---------------- |

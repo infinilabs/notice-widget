@@ -1,10 +1,10 @@
 import { html } from "uhtml";
 
 import { toStyle } from "../core/utils";
-import type { Options } from "../core/render";
+import type { NoticeData } from "../core/render";
 
-export function renderTag(options?: Options) {
-  const { label, ...rest } = options?.tag ?? {};
+export function renderTag(data?: NoticeData) {
+  const { label, ...rest } = data?.tag ?? {};
 
   if (!label) return null;
 
