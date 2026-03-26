@@ -17,19 +17,19 @@ export function DropdownIcon(data?: NoticeData) {
     const isOpen = open.value;
 
     const shadow = getShadowRoot();
-    const element = shadow.querySelector(".nw-dropdown-menus");
+    const dropdownMenusElement = shadow.querySelector(".nw-dropdown-menus");
 
-    if (!element) return;
+    if (!dropdownMenusElement) return;
 
     if (isOpen) {
-      animate(element, {
+      animate(dropdownMenusElement, {
         height: "auto",
         opacity: 1,
         paddingBlock: 24,
         borderTopWidth: 1,
       });
     } else {
-      animate(element, {
+      animate(dropdownMenusElement, {
         height: 0,
         opacity: 0,
         paddingBlock: 0,

@@ -50,10 +50,10 @@ function render(data: NoticeData) {
     shadow.append(style);
   }
 
-  const prevBanner = shadow.querySelector(".nw-banner");
+  const prevBannerElement = shadow.querySelector(".nw-banner");
 
-  if (prevBanner) {
-    prevBanner.remove();
+  if (prevBannerElement) {
+    prevBannerElement.remove();
   }
 
   const el = html`
@@ -77,7 +77,9 @@ function render(data: NoticeData) {
 
   const bannerElement = shadow.querySelector(".nw-banner");
 
-  if (bannerElement) applyThemeVars(bannerElement, getCurrentThemeVars());
+  if (bannerElement) {
+    applyThemeVars(bannerElement, getCurrentThemeVars());
+  }
 }
 
 export async function initNotice(options: NoticeInitOptions) {

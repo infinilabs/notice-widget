@@ -19,6 +19,7 @@ export function getCurrentThemeVars(): ThemeVars | undefined {
 
 export function initTheme(theme: Theme, themes?: NoticeInitOptions["themes"]) {
   currentTheme = theme;
+
   currentThemes = themes;
 }
 
@@ -30,6 +31,7 @@ export function applyThemeVars(element: Element, vars?: ThemeVars) {
   if (!vars) return;
 
   const flat = flattenObject(vars);
+
   const el = element as HTMLElement;
 
   for (const [key, value] of Object.entries(flat)) {
