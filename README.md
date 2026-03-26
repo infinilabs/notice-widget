@@ -7,28 +7,46 @@
 
 <script>
   NoticeWidget.init({
-    "zh-CN": "./locales/zh-CN.json",
-    "en-US": "./locales/en-US.json",
+    locales: {
+      "zh-CN": "./locales/zh-CN.json",
+      "en-US": "./locales/en-US.json",
+    },
+    lang: "zh-CN",
+    theme: "light",
   });
 
   NoticeWidget.setLang("en-US");
+  NoticeWidget.setTheme("dark");
 </script>
 ```
 
 ## 方法
 
-| 方法      | 参数                                  | 说明                                                       |
-| --------- | ------------------------------------- | ---------------------------------------------------------- |
-| `init`    | `(locales: LocaleFiles, lang?: Lang)` | 传入各语言 JSON 文件 URL，初始化并渲染（默认语言 `zh-CN`） |
-| `setLang` | `(lang: Lang)`                        | 切换语言，加载对应 JSON 文件并重新渲染                     |
+| 方法       | 参数                           | 说明                                                              |
+| ---------- | ------------------------------ | ----------------------------------------------------------------- |
+| `init`     | `(options: NoticeInitOptions)` | 初始化并渲染，支持语言 JSON、默认语言（`zh-CN`）和主题（`light`） |
+| `setLang`  | `(lang: Lang)`                 | 切换语言，加载对应 JSON 文件并重新渲染                            |
+| `setTheme` | `(theme: Theme)`               | 切换主题（`light` / `dark`），仅更新组件主题类名                  |
 
 ### Lang
 
 `"zh-CN" | "en-US"`
 
+### Theme
+
+`"light" | "dark"`
+
 ### LocaleFiles
 
 `Record<Lang, string>` — 键为语言标识，值为对应语言 JSON 文件的 URL。
+
+### NoticeInitOptions
+
+| 参数      | 类型          | 必填 | 默认值    | 说明                              |
+| --------- | ------------- | ---- | --------- | --------------------------------- |
+| `locales` | `LocaleFiles` | 是   | -         | 各语言 JSON 文件 URL 映射         |
+| `lang`    | `Lang`        | 否   | `"zh-CN"` | 初始化语言                        |
+| `theme`   | `Theme`       | 否   | `"light"` | 初始化主题（仅 `light` / `dark`） |
 
 ## NoticeData 字段
 

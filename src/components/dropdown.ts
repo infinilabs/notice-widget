@@ -65,7 +65,7 @@ export function renderDropdownMenus(data?: NoticeData) {
 
         return html`
           <a href="${url}" class="nw-dropdown-menu" target="_blank">
-            <div class="nw-dropdown-menu-label">${label}</div>
+            <div class="nw-dropdown-menu-title">${label}</div>
 
             <div class="nw-dropdown-menu-description">${description}</div>
 

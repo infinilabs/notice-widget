@@ -49,12 +49,20 @@ export interface NoticeData {
 }
 
 export type Lang = "zh-CN" | "en-US";
+export type Theme = "light" | "dark";
 
 export type LocaleFiles = Record<Lang, string>;
+
+export interface NoticeInitOptions {
+  locales: LocaleFiles;
+  lang?: Lang;
+  theme?: Theme;
+}
 
 let localeFiles: LocaleFiles | null = null;
 let localeCache: Partial<Record<Lang, NoticeData>> = {};
 let currentLang: Lang = "zh-CN";
+let currentTheme: Theme = "light";
 
 async function fetchLocale(url: string): Promise<NoticeData> {
   try {
@@ -84,9 +92,12 @@ async function getLocaleData(lang: Lang): Promise<NoticeData> {
   return data;
 }
 
-export async function initNotice(files: LocaleFiles, lang: Lang = "zh-CN") {
-  localeFiles = files;
+export async function initNotice(options: NoticeInitOptions) {
+  const { locales, lang = "zh-CN", theme = "light" } = options;
+
+  localeFiles = locales;
   currentLang = lang;
+  currentTheme = theme;
 
   const data = await getLocaleData(currentLang);
 
@@ -101,6 +112,21 @@ export async function setLang(lang: Lang) {
   const data = await getLocaleData(currentLang);
 
   render(data);
+}
+
+export function setTheme(theme: Theme) {
+  if (currentTheme === theme) return;
+
+  currentTheme = theme;
+
+  const shadow = getShadowRoot();
+  const bannerElement = shadow.querySelector(".nw-banner");
+
+  if (bannerElement) {
+    bannerElement.classList.toggle("nw-theme-light", currentTheme === "light");
+
+    bannerElement.classList.toggle("nw-theme-dark", currentTheme === "dark");
+  }
 }
 
 function render(data: NoticeData) {
@@ -122,8 +148,14 @@ function render(data: NoticeData) {
 
   const { color, background } = data;
 
+  const themeClass =
+    currentTheme === "dark" ? "nw-theme-dark" : "nw-theme-light";
+
   const el = html`
-    <div class="nw-banner" style=${toStyle({ color, background })}>
+    <div
+      class=${`nw-banner ${themeClass}`}
+      style=${toStyle({ color, background })}
+    >
       <div class="nw-body">
         <div class="nw-content">
           ${renderTag(data)} ${renderTitle(data)} ${renderButton(data)}
