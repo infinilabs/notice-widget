@@ -1,28 +1,28 @@
 {
-  "title": "🎉 Easysearch 2.0.2 发布，国密功能正式上线！",
+  "title": "🎉 Easysearch 2.1.0 发布，新增高性能 Rules 规则引擎插件!",
   "tag": {
     "label": "New"
   },
   "button": {
     "label": "立即试用",
-    "url": "https://easysearch.cn"
+    "url": "https://infinilabs.cn/download/"
   },
   "menus": [
     {
       "label": "下载",
-      "url": "https://easysearch.cn"
+      "url": "https://infinilabs.cn/download/"
     },
     {
       "label": "联系我们",
-      "url": "https://easysearch.cn"
+      "url": "https://infinilabs.cn/company/contact/"
     },
     {
       "label": "支持",
-      "url": "https://easysearch.cn"
+      "url": "https://infinilabs.cn/support-portal/"
     },
     {
       "label": "登录",
-      "url": "https://easysearch.cn"
+      "url": "https://app.infini.cloud"
     }
   ],
   "logo": "https://infinilabs.cn/img/header/logo.svg",
@@ -45,7 +45,7 @@
     {
       "label": "INFINI Could 官网",
       "description": "一站式企业搜索管理与创新平台",
-      "url": "https://easysearch.cn"
+      "url": "https://app.infini.cloud"
     },
     {
       "label": "Easysearch 知识库",
@@ -55,7 +55,7 @@
     {
       "label": "免费许可证计划",
       "description": "开源项目与教育机构免费许可证计划",
-      "url": "https://easysearch.cn"
+      "url": "https://infinilabs.cn/community/"
     },
     {
       "label": "INFINI Pizza 官网",
