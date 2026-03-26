@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      es-toolkit:
+        specifier: ^1.45.1
+        version: 1.45.1
       lucide:
         specifier: ^1.0.1
         version: 1.0.1
@@ -241,6 +244,9 @@ packages:
   detect-libc@2.1.2:
     resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==}
     engines: {node: '>=8'}
+
+  es-toolkit@1.45.1:
+    resolution: {integrity: sha512-/jhoOj/Fx+A+IIyDNOvO3TItGmlMKhtX8ISAHKE90c4b/k1tqaqEZ+uUqfpU8DMnW5cgNJv606zS55jGvza0Xw==}
 
   fdir@6.5.0:
     resolution: {integrity: sha512-tIbYtZbucOs0BRGqPJkshJUYdL+SDH7dVM8gjy+ERp3WAUjLEFJE+02kanyHtwjWOnwrKYBiwAmM0p4kLJAnXg==}
@@ -629,6 +635,8 @@ snapshots:
       readdirp: 4.1.2
 
   detect-libc@2.1.2: {}
+
+  es-toolkit@1.45.1: {}
 
   fdir@6.5.0(picomatch@4.0.3):
     optionalDependencies:

@@ -3,14 +3,13 @@ import { createElement, Menu, ArrowUpRight } from "lucide";
 import { animate } from "motion";
 
 import { getShadowRoot } from "../core/mount";
-import { toStyle } from "../core/utils";
 import type { NoticeData } from "../core/render";
 import { renderMenus } from "./menus";
 
 export function DropdownIcon(data?: NoticeData) {
   const open = signal(false);
 
-  const { dropdownIcon, dropdownMenus } = data ?? {};
+  const { dropdownMenus } = data ?? {};
 
   if (!dropdownMenus || dropdownMenus.length === 0) return null;
 
@@ -45,9 +44,7 @@ export function DropdownIcon(data?: NoticeData) {
 
   return html`
     <div class="nw-dropdown-icon" onClick=${handleClick}>
-      ${createElement(Menu, {
-        style: toStyle(dropdownIcon),
-      })}
+      ${createElement(Menu)}
     </div>
   `;
 }

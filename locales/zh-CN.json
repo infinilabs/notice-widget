@@ -1,8 +1,6 @@
 {
   "title": "🎉 Easysearch 2.1.0 发布，新增高性能 Rules 规则引擎插件!",
-  "tag": {
-    "label": "New"
-  },
+  "tag": "New",
   "button": {
     "label": "立即试用",
     "url": "https://infinilabs.cn/download/"
@@ -25,7 +23,10 @@
       "url": "https://app.infini.cloud"
     }
   ],
-  "logo": "https://infinilabs.cn/img/header/logo.svg",
+  "logo": {
+    "light": "https://infinilabs.cn/img/header/logo.svg",
+    "dark": "https://infinilabs.com/svg/INFINILabs-logo.svg"
+  },
   "dropdownMenus": [
     {
       "label": "INFINI Labs 官网",

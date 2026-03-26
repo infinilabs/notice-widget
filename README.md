@@ -11,24 +11,34 @@
       "zh-CN": "./locales/zh-CN.json",
       "en-US": "./locales/en-US.json",
     },
-    lang: "zh-CN",
+    locale: "zh-CN",
     theme: "light",
+    themes: {
+      light: {
+        textColor: "#000",
+        bgColor: "#fff",
+      },
+      dark: {
+        textColor: "#fff",
+        bgColor: "#000",
+      },
+    },
   });
 
-  NoticeWidget.setLang("en-US");
+  NoticeWidget.setLocale("en-US");
   NoticeWidget.setTheme("dark");
 </script>
 ```
 
 ## 方法
 
-| 方法       | 参数                           | 说明                                                              |
-| ---------- | ------------------------------ | ----------------------------------------------------------------- |
-| `init`     | `(options: NoticeInitOptions)` | 初始化并渲染，支持语言 JSON、默认语言（`zh-CN`）和主题（`light`） |
-| `setLang`  | `(lang: Lang)`                 | 切换语言，加载对应 JSON 文件并重新渲染                            |
-| `setTheme` | `(theme: Theme)`               | 切换主题（`light` / `dark`），仅更新组件主题类名                  |
+| 方法        | 参数                           | 说明                                                              |
+| ----------- | ------------------------------ | ----------------------------------------------------------------- |
+| `init`      | `(options: NoticeInitOptions)` | 初始化并渲染，支持语言 JSON、默认语言（`zh-CN`）和主题（`light`） |
+| `setLocale` | `(locale: Locale)`             | 切换语言，加载对应 JSON 文件并重新渲染                            |
+| `setTheme`  | `(theme: Theme)`               | 切换主题（`light` / `dark`），仅更新组件主题类名                  |
 
-### Lang
+### Locale
 
 `"zh-CN" | "en-US"`
 
@@ -38,49 +48,35 @@
 
 ### LocaleFiles
 
-`Record<Lang, string>` — 键为语言标识，值为对应语言 JSON 文件的 URL。
+`Record<Locale, string>` — 键为语言标识，值为对应语言 JSON 文件的 URL。
 
 ### NoticeInitOptions
 
-| 参数      | 类型          | 必填 | 默认值    | 说明                              |
-| --------- | ------------- | ---- | --------- | --------------------------------- |
-| `locales` | `LocaleFiles` | 是   | -         | 各语言 JSON 文件 URL 映射         |
-| `lang`    | `Lang`        | 否   | `"zh-CN"` | 初始化语言                        |
-| `theme`   | `Theme`       | 否   | `"light"` | 初始化主题（仅 `light` / `dark`） |
+| 参数      | 类型                                      | 必填 | 默认值    | 说明                              |
+| --------- | ----------------------------------------- | ---- | --------- | --------------------------------- |
+| `locales` | `LocaleFiles`                             | 是   | -         | 各语言 JSON 文件 URL 映射         |
+| `locale`  | `Locale`                                  | 否   | `"zh-CN"` | 初始化语言                        |
+| `theme`   | `Theme`                                   | 否   | `"light"` | 初始化主题（仅 `light` / `dark`） |
+| `themes`  | `{ light?: ThemeVars; dark?: ThemeVars }` | 否   | -         | 各主题的 CSS 变量覆盖配置         |
 
 ## NoticeData 字段
 
-| 参数            | 类型      | 必填 | 默认值    | 说明             |
-| --------------- | --------- | ---- | --------- | ---------------- |
-| `title`         | `string`  | 否   | -         | 通知标题         |
-| `color`         | `string`  | 否   | `#333`    | 文字颜色         |
-| `background`    | `string`  | 否   | `#f5f5f5` | 背景颜色         |
-| `tag`           | `object`  | 否   | -         | 标签配置         |
-| `button`        | `object`  | 否   | -         | 按钮配置         |
-| `menus`         | `array`   | 否   | -         | 菜单列表         |
-| `logo`          | `string`  | 否   | -         | Logo 图片地址    |
-| `dropdownIcon`  | `object`  | 否   | -         | 下拉菜单图标配置 |
-| `dropdownMenus` | `array`   | 否   | -         | 下拉菜单列表     |
-| `divider`       | `object`  | 否   | -         | 分隔线配置       |
-| `closeIcon`     | `object`  | 否   | -         | 关闭图标配置     |
-| `closable`      | `boolean` | 否   | `true`    | 是否显示关闭按钮 |
-
-### tag
-
-| 参数         | 类型     | 必填 | 默认值    | 说明     |
-| ------------ | -------- | ---- | --------- | -------- |
-| `label`      | `string` | 是   | -         | 标签文本 |
-| `color`      | `string` | 否   | `#fff`    | 文字颜色 |
-| `background` | `string` | 否   | `#ff9900` | 背景颜色 |
+| 参数            | 类型                                        | 必填 | 默认值 | 说明                        |
+| --------------- | ------------------------------------------- | ---- | ------ | --------------------------- |
+| `title`         | `string`                                    | 否   | -      | 通知标题                    |
+| `tag`           | `string`                                    | 否   | -      | 标签文本                    |
+| `button`        | `object`                                    | 否   | -      | 按钮配置                    |
+| `menus`         | `array`                                     | 否   | -      | 菜单列表                    |
+| `logo`          | `string \| { light: string; dark: string }` | 否   | -      | Logo 图片地址，可按主题区分 |
+| `dropdownMenus` | `array`                                     | 否   | -      | 下拉菜单列表                |
+| `closable`      | `boolean`                                   | 否   | `true` | 是否显示关闭按钮            |
 
 ### button
 
-| 参数         | 类型     | 必填 | 默认值    | 说明         |
-| ------------ | -------- | ---- | --------- | ------------ |
-| `label`      | `string` | 是   | -         | 按钮文本     |
-| `color`      | `string` | 否   | `#fff`    | 文字颜色     |
-| `background` | `string` | 否   | `#1784fc` | 背景颜色     |
-| `url`        | `string` | 否   | -         | 点击跳转链接 |
+| 参数    | 类型     | 必填 | 默认值 | 说明         |
+| ------- | -------- | ---- | ------ | ------------ |
+| `label` | `string` | 是   | -      | 按钮文本     |
+| `url`   | `string` | 否   | -      | 点击跳转链接 |
 
 ### menus
 
@@ -88,12 +84,6 @@
 | ------- | -------- | ---- | ------ | -------- |
 | `label` | `string` | 是   | -      | 菜单文本 |
 | `url`   | `string` | 是   | -      | 菜单链接 |
-
-### dropdownIcon
-
-| 参数    | 类型     | 必填 | 默认值 | 说明     |
-| ------- | -------- | ---- | ------ | -------- |
-| `color` | `string` | 否   | `#999` | 图标颜色 |
 
 ### dropdownMenus
 
@@ -103,14 +93,27 @@
 | `description` | `string` | 是   | -      | 菜单描述 |
 | `url`         | `string` | 是   | -      | 菜单链接 |
 
-### divider
+## ThemeVars 字段
 
-| 参数         | 类型     | 必填 | 默认值 | 说明       |
-| ------------ | -------- | ---- | ------ | ---------- |
-| `background` | `string` | 否   | `#bbb` | 分隔线颜色 |
+通过 `themes.light` / `themes.dark` 传入，用于覆盖对应主题的默认 CSS 变量。
 
-### closeIcon
-
-| 参数    | 类型     | 必填 | 默认值 | 说明     |
-| ------- | -------- | ---- | ------ | -------- |
-| `color` | `string` | 否   | `#666` | 图标颜色 |
+| 参数                            | 类型     | 对应 CSS 变量                       | 默认值（light） |
+| ------------------------------- | -------- | ----------------------------------- | --------------- |
+| `textColor`                     | `string` | `--text-color`                      | `#333`          |
+| `bgColor`                       | `string` | `--bg-color`                        | `#f5f5f5`       |
+| `borderColor`                   | `string` | `--border-color`                    | `#e4e4e4`       |
+| `textHoverColor`                | `string` | `--text-hover-color`                | `#1784fc`       |
+| `tag.textColor`                 | `string` | `--tag-text-color`                  | `#fff`          |
+| `tag.bgColor`                   | `string` | `--tag-bg-color`                    | `#ff9900`       |
+| `button.textColor`              | `string` | `--button-text-color`               | `#fff`          |
+| `button.bgColor`                | `string` | `--button-bg-color`                 | `#1784fc`       |
+| `divider.color`                 | `string` | `--divider-color`                   | `#bbb`          |
+| `dropdownMenuIcon.color`        | `string` | `--dropdown-menu-icon-color`        | `#999`          |
+| `dropdownMenuIcon.hoverColor`   | `string` | `--dropdown-menu-icon-hover-color`  | `#1784fc`       |
+| `closeIcon.color`               | `string` | `--close-icon-color`                | `#666`          |
+| `closeIcon.hoverColor`          | `string` | `--close-icon-hover-color`          | `#ff4d4f`       |
+| `dropdownMenu.titleColor`       | `string` | `--dropdown-menu-title-color`       | `#333`          |
+| `dropdownMenu.descriptionColor` | `string` | `--dropdown-menu-description-color` | `#999`          |
+| `dropdownMenu.bgColor`          | `string` | `--dropdown-menu-bg-color`          | `#fff`          |
+| `dropdownMenu.borderColor`      | `string` | `--dropdown-menu-border-color`      | `#f4f4f4`       |
+| `dropdownMenu.arrowIconColor`   | `string` | `--dropdown-menu-arrow-icon-color`  | `#1784fc`       |

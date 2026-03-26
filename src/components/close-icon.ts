@@ -3,7 +3,6 @@ import { createElement, X } from "lucide";
 import { animate } from "motion";
 
 import { getShadowRoot } from "../core/mount";
-import { toStyle } from "../core/utils";
 import type { NoticeData } from "../core/render";
 
 const handleClose = async () => {
@@ -18,15 +17,11 @@ const handleClose = async () => {
 };
 
 export function renderCloseIcon(data?: NoticeData) {
-  const { closable = true, closeIcon } = data ?? {};
+  const { closable = true } = data ?? {};
 
   if (!closable) return null;
 
   return html`
-    <div class="nw-close-icon" onClick=${handleClose}>
-      ${createElement(X, {
-        style: toStyle(closeIcon),
-      })}
-    </div>
+    <div class="nw-close-icon" onClick=${handleClose}>${createElement(X)}</div>
   `;
 }

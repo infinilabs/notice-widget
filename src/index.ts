@@ -1,9 +1,9 @@
 import {
   initNotice,
-  setLang,
+  setLocale,
   setTheme,
   type NoticeData,
-  type Lang,
+  type Locale,
   type LocaleFiles,
   type Theme,
   type NoticeInitOptions,
@@ -13,13 +13,13 @@ const NoticeWidget = {
   init(options: NoticeInitOptions) {
     return initNotice(options);
   },
-  setLang,
+  setLocale,
   setTheme,
 };
 
-if (typeof window !== "undefined") {
+if (window != null) {
   (window as any).NoticeWidget = NoticeWidget;
 }
 
-export type { NoticeData, Lang, LocaleFiles, Theme, NoticeInitOptions };
+export type { NoticeData, Locale, LocaleFiles, Theme, NoticeInitOptions };
 export default NoticeWidget;

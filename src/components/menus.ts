@@ -17,7 +17,7 @@ export function renderMenus(data?: NoticeData, divider = true) {
         return html`
           <a href="${url}" class="nw-menu" target="_blank">${label}</a>
 
-          ${cond(divider && index < menus.length - 1, renderDivider(data))}
+          ${cond(divider && index < menus.length - 1, renderDivider())}
         `;
       })}
     </div>
