@@ -3,30 +3,15 @@
 准备好 `zh-CN.json` 和 `en-US.json` 两个 JSON 文件，数据结构见下方 [NoticeData 字段](#noticedata-字段)。
 
 ```html
-<script src="./dist/notice-widget.umd.cjs"></script>
+<script src="https://infinilabs.com/notice-widget/notice-widget.umd.cjs"></script>
 
 <script>
   NoticeWidget.init({
     locales: {
-      "zh-CN": "./locales/zh-CN.json",
-      "en-US": "./locales/en-US.json",
-    },
-    locale: "zh-CN",
-    theme: "light",
-    themes: {
-      light: {
-        textColor: "#000",
-        bgColor: "#fff",
-      },
-      dark: {
-        textColor: "#fff",
-        bgColor: "#000",
-      },
+      "zh-CN": "https://infinilabs.com/notice-widget/locales/zh-CN.json",
+      "en-US": "https://infinilabs.com/notice-widget/locales/en-US.json",
     },
   });
-
-  NoticeWidget.setLocale("en-US");
-  NoticeWidget.setTheme("dark");
 </script>
 ```
 
