@@ -69,4 +69,9 @@ export interface NoticeInitOptions {
     light?: ThemeVars;
     dark?: ThemeVars;
   };
+  /**
+   * 若页面存在 position:fixed 元素与通知栏重叠，开启此项后通知栏将挂载到
+   * \<html\> 并对 \<body\> 施加 transform，使其内部所有 fixed 元素失去视口固定效果。
+   */
+  neutralizeFixed?: boolean;
 }

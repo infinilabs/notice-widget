@@ -52,12 +52,13 @@
 
 ### NoticeInitOptions
 
-| 参数      | 类型                                      | 必填 | 默认值    | 说明                              |
-| --------- | ----------------------------------------- | ---- | --------- | --------------------------------- |
-| `locales` | `LocaleFiles`                             | 是   | -         | 各语言 JSON 文件 URL 映射         |
-| `locale`  | `Locale`                                  | 否   | `"zh-CN"` | 初始化语言                        |
-| `theme`   | `Theme`                                   | 否   | `"light"` | 初始化主题（仅 `light` / `dark`） |
-| `themes`  | `{ light?: ThemeVars; dark?: ThemeVars }` | 否   | -         | 各主题的 CSS 变量覆盖配置         |
+| 参数              | 类型                                      | 必填 | 默认值    | 说明                                                                |
+| ----------------- | ----------------------------------------- | ---- | --------- | ------------------------------------------------------------------- |
+| `locales`         | `LocaleFiles`                             | 是   | -         | 各语言 JSON 文件 URL 映射                                           |
+| `locale`          | `Locale`                                  | 否   | `"zh-CN"` | 初始化语言                                                          |
+| `theme`           | `Theme`                                   | 否   | `"light"` | 初始化主题（仅 `light` / `dark`）                                   |
+| `themes`          | `{ light?: ThemeVars; dark?: ThemeVars }` | 否   | -         | 各主题的 CSS 变量覆盖配置                                           |
+| `neutralizeFixed` | `boolean`                                 | 否   | `false`   | 若页面存在 `position: fixed` 元素与通知栏重叠，开启此项即可忽略重叠 |
 
 ## NoticeData 字段
 

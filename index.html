@@ -5,14 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>notice-widget</title>
     <script src="./dist/notice-widget.umd.cjs"></script>
+    <style>
+      body {
+        margin: 0;
+      }
+      .container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+      }
+    </style>
   </head>
-  <body style="margin: 0">
-    <div>我是正文内容</div>
+  <body>
+    <div class="container">
+      <p>我是正文内容1</p>
+      <p>我是正文内容2</p>
+      <p>我是正文内容3</p>
+      <p>我是正文内容4</p>
+      <p>我是正文内容5</p>
+      <p>我是正文内容6</p>
 
-    <button onclick="NoticeWidget.setLocale('en-US')">English</button>
-    <button onclick="NoticeWidget.setLocale('zh-CN')">中文</button>
-    <button onclick="NoticeWidget.setTheme('light')">Light</button>
-    <button onclick="NoticeWidget.setTheme('dark')">Dark</button>
+      <button onclick="NoticeWidget.setLocale('en-US')">English</button>
+      <button onclick="NoticeWidget.setLocale('zh-CN')">中文</button>
+      <button onclick="NoticeWidget.setTheme('light')">Light</button>
+      <button onclick="NoticeWidget.setTheme('dark')">Dark</button>
+    </div>
 
     <script>
       NoticeWidget.init({
@@ -22,6 +40,7 @@
         },
         lang: "zh-CN",
         theme: "light",
+        neutralizeFixed: true,
       });
     </script>
   </body>

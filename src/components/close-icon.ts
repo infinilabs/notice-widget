@@ -3,7 +3,7 @@ import { createElement, X } from "lucide";
 import { animate } from "motion";
 
 import { getShadowRoot } from "../core/mount";
-import type { NoticeData } from "../core/render";
+import { getNeutralizeFixed, type NoticeData } from "../core/render";
 
 const handleClose = async () => {
   const shadow = getShadowRoot();
@@ -12,6 +12,10 @@ const handleClose = async () => {
     height: 0,
     opacity: 0,
   });
+
+  if (getNeutralizeFixed()) {
+    document.body.style.transform = "none";
+  }
 
   shadow.host.remove();
 };

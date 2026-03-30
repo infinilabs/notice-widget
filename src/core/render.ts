@@ -36,6 +36,7 @@ export type {
 import type { NoticeData, Locale, Theme, NoticeInitOptions } from "./types";
 
 let currentData: NoticeData | null = null;
+let _neutralizeFixed = false;
 
 function render(data: NoticeData) {
   currentData = data;
@@ -79,11 +80,27 @@ function render(data: NoticeData) {
 
   if (bannerElement) {
     applyThemeVars(bannerElement, getCurrentThemeVars());
+
+    if (_neutralizeFixed) {
+      document.body.style.transform = `translateY(0)`;
+    }
   }
 }
 
+export function getNeutralizeFixed() {
+  return _neutralizeFixed;
+}
+
 export async function initNotice(options: NoticeInitOptions) {
-  const { locales, locale = "zh-CN", theme = "light", themes } = options;
+  const {
+    locales,
+    locale = "zh-CN",
+    theme = "light",
+    themes,
+    neutralizeFixed = false,
+  } = options;
+
+  _neutralizeFixed = neutralizeFixed;
 
   initLocales(locales, locale);
   initTheme(theme, themes);

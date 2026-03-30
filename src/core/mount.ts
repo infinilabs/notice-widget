@@ -1,3 +1,5 @@
+import { getNeutralizeFixed } from "./render";
+
 let shadowRoot: ShadowRoot | null = null;
 
 export function getShadowRoot() {
@@ -8,7 +10,11 @@ export function getShadowRoot() {
     style: "overflow: hidden",
   });
 
-  document.body.prepend(host);
+  if (getNeutralizeFixed()) {
+    document.documentElement.prepend(host);
+  } else {
+    document.body.prepend(host);
+  }
 
   shadowRoot = host.attachShadow({ mode: "open" });
 
