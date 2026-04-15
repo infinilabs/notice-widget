@@ -122,6 +122,18 @@ $size-4xl: 64px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+
+        &.nw-title-link {
+          text-decoration: none;
+          color: inherit;
+          transition: color 0.2s;
+
+          &:hover {
+            color: $primary-color;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+          }
+        }
       }
 
       .nw-button {

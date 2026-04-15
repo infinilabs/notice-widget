@@ -1,5 +1,8 @@
 {
-  "title": "🎉 Easysearch 2.1.0 is released, adding a high-performance Rules rule engine plugin!",
+  "title": {
+    "label": "🎉 Easysearch 2.1.0 is released, adding a high-performance Rules rule engine plugin!",
+    "url": "https://infinilabs.cn/blog/2026/release-20260316/"
+  },
   "tag": "New",
   "button": {
     "label": "Try Now",

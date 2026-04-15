@@ -7,5 +7,15 @@ export function renderTitle(data?: NoticeData) {
 
   if (!title) return null;
 
-  return html`<div class="nw-title">${title}</div>`;
+  const { label, url } = title;
+
+  if (url) {
+    return html`
+      <a class="nw-title nw-title-link" href=${url} target="_blank">
+        ${label}
+      </a>
+    `;
+  }
+
+  return html`<div class="nw-title">${label}</div>`;
 }

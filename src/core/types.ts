@@ -1,6 +1,9 @@
 export interface NoticeData {
   tag?: string;
-  title?: string;
+  title?: {
+    label: string;
+    url?: string;
+  };
   closable?: boolean;
   logo?:
     | string

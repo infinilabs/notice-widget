@@ -1,5 +1,8 @@
 {
-  "title": "🎉 Easysearch 2.1.0 发布，新增高性能 Rules 规则引擎插件！",
+  "title": {
+    "label": "🎉 Easysearch 2.1.0 发布，新增高性能 Rules 规则引擎插件！",
+    "url": "https://infinilabs.cn/blog/2026/release-20260316/"
+  },
   "tag": "New",
   "button": {
     "label": "立即试用",
